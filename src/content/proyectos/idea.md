@@ -3,7 +3,7 @@ categoria: editorial
 title: Idea
 year: 2023
 description: Libro de arte
-image: ../..\assets\editorial\homenajeIdea\animo_portada.jpg
+image: ../../assets/editorial/homenajeIdea/animo_portada.jpg
 gallery:
   - ../../assets/editorial/homenajeIdea/homenaje_2.jpg
   - ../../assets/editorial/homenajeIdea/homenaje_3.jpg
