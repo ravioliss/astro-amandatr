@@ -12,12 +12,11 @@ export async function getStaticPaths() {
 
 const { proyecto } = Astro.props;
 const { Content } = await render(proyecto);
-const { title, year, description, image, gallery, categoria } = proyecto.data;
+const { title, year, description, image, gallery, categoria, video } = proyecto.data;
 ---
 
-<main>
-   
-    <Base titulo={title}>
+  
+    <Base titulo ={title}>
   <a href="/">← Volver</a>
 
   <article class="proyecto">
@@ -51,4 +50,3 @@ const { title, year, description, image, gallery, categoria } = proyecto.data;
     </article>
  
 </Base> 
- </main>
