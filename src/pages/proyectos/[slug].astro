@@ -2,9 +2,10 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/layout.astro';
-import VideoPlayer from '../../components/VideoPlayer.astro';  
+import VideoPlayer from '../../components/videoplayer.astro';  
 
 export async function getStaticPaths() {
+  
   const proyectos = await getCollection('proyectos');
   return proyectos.map(proyecto => ({
     params: { slug: proyecto.id },
