@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/layout.astro';
-
 export async function getStaticPaths() {
   const proyectos = await getCollection('proyectos');
   return proyectos.map(proyecto => ({
