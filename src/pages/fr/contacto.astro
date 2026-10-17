@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/layout.astro'
+import Layout from '../../layouts/layout.astro'
 
-import { getLocale, useTranslations } from '../i18n/utils.ts'
+import { getLocale, useTranslations } from '../../i18n/utils.ts'
 
 const currentLang = getLocale(Astro.currentLocale)
 const translateLabels = useTranslations(currentLang)
-
+  
 ---
 
 <Layout title="Página de Contacto"

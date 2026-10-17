@@ -1,14 +1,14 @@
 ---
 
 import { getCollection } from 'astro:content';
-import Card from '../components/cards.astro';
+import Card from '../../../components/cards.astro';
 
 const proyectos = await getCollection('proyectos');
 
 
-import Layout from '../layouts/layout.astro'
+import Layout from '../../../layouts/layout.astro'
 
-import { getLocale, useTranslations } from '../i18n/utils.ts'
+import { getLocale, useTranslations } from '../../../i18n/utils.ts'
 
 const currentLang = getLocale(Astro.currentLocale)
 const translateLabels = useTranslations(currentLang)
