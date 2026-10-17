@@ -16,13 +16,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
-         with:
+        with:
           node-version: 22
-
-        #   path: . # La ubicación de tu proyecto Astro (opcional)
-        #   node-version: 20 # La versión de Node.js (opcional)
 
   deploy:
     needs: build
