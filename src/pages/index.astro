@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '../components/cards.astro';
+import Layout from '../layouts/layout.astro';
+import { getLocale, useTranslations } from '../i18n/utils.ts';
+
+const proyectos = await getCollection('proyectos');
+
+const currentLang = getLocale(Astro.currentLocale);
+const translateLabels = useTranslations(currentLang);
+---
+
+<Layout
+  title="Portfolio de Arte y Diseño — Amanda Torres"
+  description="Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web."
+>
+  <h1>Amanda Torres</h1>
+  <h3>{translateLabels("nav.home")}</h3>
+
+  <h3>Categorías</h3>
+  <ul class="categorias">
+    <li class="categorias__item rosa"><button  data-cat="pintura">Pintura</button></li>
+    <li class="categorias__item azul"><button  data-cat="grafica">Gráfica</button></li>
+    <li class="categorias__item verde"><button  data-cat="codigo">Código</button></li>
+    <li class="categorias__item anarajado"><button  data-cat="editorial">Editorial</button></li>
+    <li class="categorias__item rojo"><button  data-cat="video">Video</button></li>
+    <li class="categorias__item violeta"><button  data-cat="diseno">Diseño Gráfico</button></li>
+  </ul>
+
+  <label class="selector-year" for="year">Años</label>
+  <select id="year" class="selector-year">
+    <option value="todos">Seleccionar</option>
+    <option value="2025-2026">2025-Now</option>
+    <option value="2020-2024">2020-2024</option>
+    <option value="2015-2019">2015-2019</option>
+  </select>
+
+  <section class="wrapper-cards">
+    {proyectos.map(proyecto => (
+      <Card
+        title={proyecto.data.title}
+        description={proyecto.data.description}
+        image={proyecto.data.image}
+        href={`/proyectos/${proyecto.id}`}
+        categoria={proyecto.data.categoria}
+        year={proyecto.data.year}
+      />
+    ))}
+  </section>
+</Layout>
+
+<script>
+  const botones = document.querySelectorAll('.categorias button');
+  const cards = document.querySelectorAll('.card-container');
+  const selectYear = document.querySelector('#year');
+
+  let filtroCategoria = 'todas';
+  let filtroYear = 'todos';
+
+  function aplicarFiltros() {
+    cards.forEach(card => {
+      const cat = card.dataset.categoria;
+      const year = parseInt(card.dataset.year);
+
+      const coincideCat = filtroCategoria === 'todas' || cat === filtroCategoria;
+      const coincideYear = cumpleYear(year, filtroYear);
+
+      card.style.display = (coincideCat && coincideYear) ? '' : 'none';
+    });
+  }
+
+  function cumpleYear(year, rango) {
+    if (rango === 'todos') return true;
+    const [min, max] = rango.split('-').map(Number);
+    return year >= min && year <= max;
+  }
+
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      const li = boton.closest('li');                    // 👈 el <li> padre
+      const yaActivo = li.classList.contains('activo');
+
+      // quitar "activo" de todos los <li>
+      document.querySelectorAll('.categorias__item').forEach(item => {
+        item.classList.remove('activo');
+      });
+
+      if (yaActivo) {
+        // si estaba activo, lo desactivamos (toggle off)
+        filtroCategoria = 'todas';
+      } else {
+        // si no estaba activo, lo activamos
+        li.classList.add('activo');
+        filtroCategoria = boton.dataset.cat;
+      }
+
+      aplicarFiltros();
+    });
+  });
+
+  selectYear?.addEventListener('change', (e) => {
+    filtroYear = e.target.value;
+    aplicarFiltros();
+  });
+</script>

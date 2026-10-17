@@ -1,0 +1,38 @@
+---
+categoria: editorial
+title: Idea
+year: 2023
+description: Libro de arte
+image: ../..\assets\editorial\homenajeIdea\animo_portada.jpg
+gallery:
+  - ../../assets/editorial/homenajeIdea/homenaje_2.jpg
+  - ../../assets/editorial/homenajeIdea/homenaje_3.jpg
+---
+
+Este proyecto está influenciado por un poema de la poeta uruguaya Idea Vilariño titulado Cuando me compre un espejo para el baño. 700
+
+**Cuando compre un espejo para el baño**
+
+Cuando compre un espejo para el baño
+voy a verme la cara
+voy a verme
+pues qué otra manera hay decíme
+qué otra manera de saber quién soy.
+Cada vez que desprenda la cabeza
+del fárrago de libros y de hojas
+y que la lleve hueca atiborrada
+y la deje en reposo allí un momento
+la miraré a los ojos con un poco
+de ansiedad de curiosidad de miedo
+o sólo con cansancio con hastío
+con la vieja amistad correspondiente
+o atenta y seriamente mirarme
+como esa extraña vez-mis once años-
+y me diré mirá ahí estás
+seguro
+pensaré no me gusta o pensaré
+que esa cara fue la única posible
+y me diré esa soy yo ésa es idea
+y le sonreiré dándome ánimos.
+
+\_Idea Vilariño

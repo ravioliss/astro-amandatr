@@ -1,0 +1,60 @@
+---
+
+import { getCollection } from 'astro:content';
+import Card from '../../components/cards.astro';
+
+const proyectos = await getCollection('proyectos');
+
+
+import Layout from '../../layouts/layout.astro'
+
+import { getLocale, useTranslations } from '../../i18n/utils.ts'
+
+const currentLang = getLocale(Astro.currentLocale)
+const translateLabels = useTranslations(currentLang)
+
+---
+	
+<Layout
+	title="Portfolio de Arte y Diseño — Amanda Torres"
+	description="Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web."
+>
+
+<main>
+	<h1> Amanda Torres</h1>
+<h3> {translateLabels("nav.home")} </h3>
+<h3>Categorías</h3>
+<ul class="categorias">
+	
+	<li class="categorias__item pinturaCat" > <button >Pintura</button></li>
+	<li class="categorias__item graficaCat"> <button>Gráfica</button></li>
+	<li class="categorias__item codigoCat"> <button>Código</button></li>
+	<li class="categorias__item editorialCat"> <button> Editorial</button></li>
+	<li class="categorias__item videoCat"> <button>Video</button></li>
+	<li class="categorias__item diseñoCat"> <button>Diseño Gráfico</button></li>
+</ul>
+
+ <label for="year"> Años </label>
+  <select id="year" class="selector-year">
+	<option>Seleccionar </option>
+    <option value="2025-2026">2025-Now</option>
+    <option value="2020-2024">2020-2024</option>
+    <option value="2015-2019">2015-2019</option>
+  </select>
+
+<section class="wrapper-cards">
+  {proyectos.map(proyecto => (
+    <Card
+      title={proyecto.data.title}
+      description={proyecto.data.description}
+      image={proyecto.data.image}
+      href={`/proyectos/${proyecto.id}`}
+    />
+  ))}
+</section>
+  
+</main>
+
+
+
+</Layout>

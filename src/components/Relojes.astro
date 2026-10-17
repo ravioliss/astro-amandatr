@@ -1,0 +1,85 @@
+---
+
+---
+
+<div class="relojes-container">
+  <div class="reloj">
+    <svg class="flag-pr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="15">
+      <rect width="900" height="600" fill="#fff"/>
+      <rect y="0"   width="900" height="120" fill="#ED0000"/>
+      <rect y="240" width="900" height="120" fill="#ED0000"/>
+      <rect y="480" width="900" height="120" fill="#ED0000"/>
+      <polygon points="0,0 450,300 0,600" fill="#0050F0"/>
+      <polygon fill="#fff" points="
+        186,150 214,242 312,242 233,297 263,389
+        186,335 109,389 139,297 60,242 158,242"/>
+    </svg>
+
+    <span class="pais">Puerto Rico</span>
+    <span class="hora" id="hora-pr">--:--:--</span>
+  </div>
+
+  <div class="reloj">
+
+    <svg class="flag-republica" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500" width="15">
+      <rect width="750" height="166.67" fill="#AA151B"/>
+      <rect y="166.67" width="750" height="166.67" fill="#F1BF00"/>
+      <rect y="333.33" width="750" height="166.67" fill="#6A1B9A"/>
+    </svg>
+
+    <span class="pais">España</span>
+    <span class="hora" id="hora-es">--:--:--</span>
+  </div>
+</div>
+
+<style>
+.relojes-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.reloj {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Afacad", sans-serif;
+}
+
+</style>
+
+<script>
+  // Crear el formato de la hora
+  const formato = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  };
+
+  // Buscar los relojes en el HTML
+  const relojPR = document.getElementById('hora-pr');
+  const relojES = document.getElementById('hora-es');
+
+  // Actualizar las horas
+  function actualizarRelojes() {
+    const ahora = new Date();
+
+    // Hora de Puerto Rico
+    relojPR.textContent = new Intl.DateTimeFormat('es-ES', {
+      ...formato,
+      timeZone: 'America/Puerto_Rico'
+    }).format(ahora);
+
+    // Hora de España
+    relojES.textContent = new Intl.DateTimeFormat('es-ES', {
+      ...formato,
+      timeZone: 'Europe/Madrid'
+    }).format(ahora);
+  }
+
+  // Mostrar las horas inmediatamente
+  actualizarRelojes();
+
+  // Actualizar cada segundo
+  setInterval(actualizarRelojes, 1000);
+</script>

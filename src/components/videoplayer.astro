@@ -1,0 +1,31 @@
+---
+const { src, title } = Astro.props;
+---
+
+<figure class="video-wrapper">
+  <video controls preload="metadata" playsinline width="100%">
+    <source src={src} type="video/mp4" />
+    Tu navegador no soporta el elemento de vídeo.
+  </video>
+<!--   {title && <figcaption>{title}</figcaption>} -->
+</figure>
+
+
+<style>
+  .video-wrapper {
+    margin: 2rem 0;
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* .video-wrapper figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  } */
+</style>

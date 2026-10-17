@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/layout.astro';
+import VideoPlayer from '../../components/VideoPlayer.astro';  
+
+export async function getStaticPaths() {
+  const proyectos = await getCollection('proyectos');
+  return proyectos.map(proyecto => ({
+    params: { slug: proyecto.id },
+    props:  { proyecto },
+  }));
+}
+
+const { proyecto } = Astro.props;
+const { Content } = await render(proyecto);
+const { title, year, description, image, gallery, categoria, video } = proyecto.data;
+---
+
+
+<Base titulo={title}>
+  <a href="/">← Volver</a>
+
+  <article class="proyecto">
+    <h1>{title}</h1>
+    <p>{year} · {categoria}</p>
+
+    {video && <VideoPlayer src={video} title={title} />}
+
+    {gallery && gallery.length > 0 ? (
+      <section class="galeria">
+        {gallery.map((foto, i) => (
+          <Image
+            class="galeria-img"
+            src={foto}
+            alt={`${title} - imagen ${i + 1}`}
+            width={600}
+          />
+        ))}
+
+        <div class="texto-celda">
+          <h2>Texto</h2>
+          <Content />
+        </div>
+      </section>
+    ) : (
+      <section class="texto-proyecto">
+        <h2>Texto</h2>
+        <Content />
+      </section>
+    )}
+
+
+  </article>
+</Base>

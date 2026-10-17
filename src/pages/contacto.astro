@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/layout.astro'
+
+import { getLocale, useTranslations } from '../i18n/utils.ts'
+
+const currentLang = getLocale(Astro.currentLocale)
+const translateLabels = useTranslations(currentLang)
+
+---
+
+<Layout title="Página de Contacto"
+description='Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web.'>
+
+<main>
+  <h1> Amanda Torres </h1>
+  <h3> {translateLabels("nav.contacto")} </h3>
+
+      <div class="container_proyectos">
+        <h2>
+          <a
+            class="info--links"
+            href="https://github.com/ravioliss"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >
+          |
+          <a
+            class="info--links"
+            href="https://www.behance.net/amandatr-me"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Behance</a
+          >
+          |
+          <a
+            class="info--links"
+            href="https://www.linkedin.com/in/amandagtr"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          |
+          <a
+            class="info--links"
+            href="/cv"
+            target="_blank"
+            rel="noopener noreferrer"
+            >CV</a
+          >
+        </h2>
+    
+      </div>
+       <div>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="80e25eee-db78-42ac-8814-274a43f37491"
+            />
+            <label for="name">Nombre:</label> <br />
+            <input type="text" name="name" placeholder="Tu nombre" required /> <br />
+            <label for="email" >Correo:</label> <br />
+            <input type="email" placeholder="Tu email" name="email" required /> <br />
+            <label for="message">Mensaje:</label> <br />
+            <textarea name="message" placeholder="Lo que me quieras escribir" required></textarea>
+            <br />
+            <div class="h-captcha" data-captcha="true"></div>
+            <button class="btn-form" type="submit">Enviar</button>
+          </form>
+        </div>
+    </main>
+
+</Layout>
