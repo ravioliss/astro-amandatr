@@ -1,6 +1,6 @@
 ---
 categoria: editorial
-title: Idea
+title: Homenaje a Idea
 year: 2023
 description: Libro de arte
 image: ../../assets/editorial/homenajeIdea/animo_portada.jpg
@@ -9,7 +9,7 @@ gallery:
   - ../../assets/editorial/homenajeIdea/homenaje_3.jpg
 ---
 
-Este proyecto está influenciado por un poema de la poeta uruguaya Idea Vilariño titulado Cuando me compre un espejo para el baño. 700
+Este proyecto está influenciado por un poema de la poeta uruguaya Idea Vilariño titulado Cuando me compre un espejo para el baño.
 
 **Cuando compre un espejo para el baño**
 
