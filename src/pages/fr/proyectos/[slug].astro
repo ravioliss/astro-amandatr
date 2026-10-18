@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/layout.astro';
+export async function getStaticPaths() {
+  const proyectos = await getCollection('proyectos');
+  return proyectos.map(proyecto => ({
+    params: { slug: proyecto.id },
+    props:  { proyecto },
+  }));
+}
+
+const { proyecto } = Astro.props;
+const { Content } = await render(proyecto);
+const { title, year, description, image, gallery, categoria, video } = proyecto.data;
+---
+
+  
+    <Base titulo ={title}>
+  <a href="/">← Volver</a>
+
+  <article class="proyecto">
+    <h1>{title}</h1>
+    <p>{year} · {categoria}</p>
+  
+
+    <!-- Imagen principal -->
+    <!-- <Image src={image} alt={title} width={600} height={400} /> --> 
+
+    <!-- 👇 AQUÍ VA LA GALERÍA -->
+     <h2>Galería</h2>
+    {gallery && gallery.length > 0 && (
+      <section class="galeria">
+          {gallery.map((foto, i) => (
+            <Image class="galeria-img"
+              src={foto}
+              alt={`${title} - imagen ${i + 1}`}
+              width={600}
+      
+            />
+          ))}
+
+          <section class="texto-proyecto">
+            <h2>Texto</h2>
+            <Content />
+          </section>
+      </section>
+    )}
+
+    </article>
+ 
+</Base> 
