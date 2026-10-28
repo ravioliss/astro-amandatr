@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   --anarajado: #ffa94d;
   --rojo: #ffa8a8;
   --violeta: #748ffc;
-  --negrotexto: #000000;
+  /* --negrotexto: #000000; */
   --blancohueso: #faf9f8;
 
   --max-width: 1280px;
@@ -25,7 +25,7 @@ body {
   box-sizing: border-box;
   margin: auto;
   background-color: var(--blancohueso);
-  color: var(--negrotexto);
+  /*  color: var(--negrotexto); */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -286,7 +286,7 @@ figure {
 
 /* Form */
 form {
-  max-width: 350px;
+  max-width: 1280px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;

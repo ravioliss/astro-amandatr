@@ -10,15 +10,15 @@ const currentLang = getLocale(Astro.currentLocale);
 const translateLabels = useTranslations(currentLang);
 ---
 
+
 <Layout
   title="Portfolio de Arte y Diseño — Amanda Torres"
   description="Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web."
 >
   <h1>Amanda Torres</h1>
-  <h3>{translateLabels("nav.home")}</h3>
 
-  <h3>Categorías</h3>
-  <ul class="categorias">
+  <h3 class="text-2xl font-light mb-4">Categorías</h3>
+  <ul class="categorias flex flex-wrap gap-6">
     <li class="categorias__item rosa"><button  data-cat="pintura">Pintura</button></li>
     <li class="categorias__item azul"><button  data-cat="grafica">Gráfica</button></li>
     <li class="categorias__item verde"><button  data-cat="codigo">Código</button></li>
