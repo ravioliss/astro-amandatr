@@ -21,7 +21,7 @@ const translateLabels = useTranslations(currentLang);
 	</figure>
 	<div class="right-nav">
 	
-	<ul class="idiomas">
+	<ul class="idiomas text-sm">
 	{Object.entries(languages).map(([key, label] : [string, string]) => {
 		return (	
 	<li><a href={`/${key}`}>{label}</a></li>
@@ -30,9 +30,9 @@ const translateLabels = useTranslations(currentLang);
 	</ul>
 
 
-	<ul class="menu">
+	<ul class="menu text-lg">
 		<li>
-			<a class="link-nav" href={indexURL}> {translateLabels("nav.home")} </a>
+			<a class="link-nav " href={indexURL}> {translateLabels("nav.home")} </a>
 		</li>
 		
 		<li>
@@ -44,7 +44,7 @@ const translateLabels = useTranslations(currentLang);
 				>{translateLabels("nav.tienda")}</a
 			>
 		</li>
-		<li  class="contacto link-nav"><a href={aboutURL}> {translateLabels("nav.contacto")}</a></li>
+		<li  class="contacto link-nav px-4 py-1 rounded-full hover:px-6 transition-all duration-300"><a  href={aboutURL}> {translateLabels("nav.contacto")}</a></li>
 	</ul> 
 	</div>
 </nav>

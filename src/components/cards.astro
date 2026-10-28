@@ -3,13 +3,13 @@ import { Image } from 'astro:assets';
 const { title, description, image, href, categoria, year } = Astro.props;
 ---
 
-<div class="card-container" data-categoria={categoria} data-year={year}>
-  <figure class="figure-card">
+<div class="card-container transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110" data-categoria={categoria} data-year={year}>
+  <figure class="figure-card ">
     <Image class="img-card" src={image} alt={title} width={300} height={200} />
       <figcaption>
-    <h2>{title}</h2>
+    <h2 class = "font-bold text-xl pt-6">{title}</h2>
     <p class="card-description">{description}</p>
-    <a href={href} class="card-link">Ver más →</a>
+    <a href={href} class="card-link">Ver más → </a>
   </figcaption>
   </figure>
 

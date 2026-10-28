@@ -15,16 +15,19 @@ export async function getStaticPaths() {
 
 const { proyecto } = Astro.props;
 const { Content } = await render(proyecto);
-const { title, year, description, image, gallery, categoria, video } = proyecto.data;
+const { title, year,/*  description, image,  */gallery, categoria, video } = proyecto.data;
 ---
 
 
 <Base titulo={title}>
-  <a href="/">← Volver</a>
+ 
 
   <article class="proyecto">
+   
     <h1>{title}</h1>
-    <p>{year} · {categoria}</p>
+    <div class="flex gap-4 pb-8" > <a href="/">← Volver</a>
+      <p>{year} · {categoria}</p></div>
+     
 
     {video && <VideoPlayer src={video} title={title} />}
 
@@ -40,7 +43,7 @@ const { title, year, description, image, gallery, categoria, video } = proyecto.
         ))}
 
         <div class="texto-celda">
-          <h2>Texto</h2>
+          <h2 class="text-2xl font-bold">Texto</h2>
           <Content />
         </div>
       </section>
@@ -49,6 +52,7 @@ const { title, year, description, image, gallery, categoria, video } = proyecto.
         <h2>Texto</h2>
         <Content />
       </section>
+  
     )}
 
 
