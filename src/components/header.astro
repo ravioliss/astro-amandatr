@@ -13,7 +13,7 @@ const translateLabels = useTranslations(currentLang);
 ---
 
 <header>
-  <nav class="my-8 mx-2 mb-16">
+  <nav class="my-8 mb-16">
     <figure>
       <SealSpinner />
     </figure>
@@ -113,13 +113,13 @@ const translateLabels = useTranslations(currentLang);
     .menu {
       display: none;
       width: 100%;
-      padding: 1rem 0;
     }
 
     /* Al abrir, columna */
     .menu.open {
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
     }
     
 
