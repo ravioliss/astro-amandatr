@@ -19,26 +19,28 @@ const translateLabels = useTranslations(currentLang)
 	title="Portfolio de Arte y Diseño — Amanda Torres"
 	description="Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web."
 >
-	<h1> Amanda Torres</h1>
+
+	<h1 class =" text-5xl font-bold pb-8"> Amanda Torres</h1>
 <h3> {translateLabels("nav.home")} </h3>
 <h3>Categorías</h3>
 <ul class="categorias">
 	
-	<li class="categorias__item pinturaCat" > <button >Pintura</button></li>
-	<li class="categorias__item graficaCat"> <button>Gráfica</button></li>
-	<li class="categorias__item codigoCat"> <button>Código</button></li>
-	<li class="categorias__item editorialCat"> <button> Editorial</button></li>
-	<li class="categorias__item videoCat"> <button>Video</button></li>
-	<li class="categorias__item diseñoCat"> <button>Diseño Gráfico</button></li>
+	<li class="categorias__item  rosa " > <button >Pintura</button></li>
+	<li class="categorias__item  azul " > <button>Gráfica</button></li>
+	<li class="categorias__item verde"> <button>Código</button></li>
+	<li class="categorias__item anarajado"> <button> Editorial</button></li>
+	<li class="categorias__item rojo"> <button>Video</button></li>
+	<li class="categorias__item violeta"> <button>Diseño Gráfico</button></li>
 </ul>
 
- <label for="year"> Años </label>
-  <select id="year" class="selector-year">
+ <label  for="year"> Años </label>
+  <select id="year" class="selector-year ">
 	<option>Seleccionar </option>
     <option value="2025-2026">2025-Now</option>
     <option value="2020-2024">2020-2024</option>
     <option value="2015-2019">2015-2019</option>
   </select>
+
 
 <section class="wrapper-cards">
   {proyectos.map(proyecto => (
@@ -49,6 +51,6 @@ const translateLabels = useTranslations(currentLang)
       href={`/proyectos/${proyecto.id}`}
     />
   ))}
-</section>
   
-</Layout>
+</section>
+  </Layout>

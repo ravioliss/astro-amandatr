@@ -1,5 +1,5 @@
 ---
-import SealSpinner from '../components/sealspinner.astro' 
+import SealSpinner from '../components/sealspinner.astro';
 import '../styles/global.css';
 import { getLocale, languages, useTranslations } from '../i18n/utils.ts';
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -13,40 +13,115 @@ const translateLabels = useTranslations(currentLang);
 ---
 
 <header>
+  <nav class="my-8 mx-2 mb-16">
+    <figure>
+      <SealSpinner />
+    </figure>
 
+    <div class="right-nav">
+      <ul class="idiomas text-sm">
+        {Object.entries(languages).map(([key, label]: [string, string]) => (
+          <li><a href={`/${key}`}>{label}</a></li>
+        ))}
+      </ul>
 
-<nav>
-			<figure>
-		<SealSpinner /> 
-	</figure>
-	<div class="right-nav">
-	
-	<ul class="idiomas text-sm">
-	{Object.entries(languages).map(([key, label] : [string, string]) => {
-		return (	
-	<li><a href={`/${key}`}>{label}</a></li>
-	)
-	})}
-	</ul>
+      <button
+        class="hamburger"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+      >
+        <span></span><span></span><span></span>
+      </button>
 
-
-	<ul class="menu text-lg">
-		<li>
-			<a class="link-nav " href={indexURL}> {translateLabels("nav.home")} </a>
-		</li>
-		
-		<li>
-			<a class="link-nav"
-				
-				href="https://madeinchina.bigcartel.com/"
-				rel="noopener"
-				target="_blank"
-				>{translateLabels("nav.tienda")}</a
-			>
-		</li>
-		<li  class="contacto link-nav p-2  rounded-full hover:px-6  transition-all duration-300"><a  href={aboutURL}> {translateLabels("nav.contacto")}</a></li>
-	</ul> 
-	</div>
-</nav>
-
+      <ul id="menu-principal" class="menu text-lg">
+        <li>
+          <a class="link-nav" href={indexURL}>{translateLabels("nav.home")}</a>
+        </li>
+        <li>
+          <a
+            class="link-nav"
+            href="https://madeinchina.bigcartel.com/"
+            rel="noopener"
+            target="_blank"
+          >{translateLabels("nav.tienda")}</a>
+        </li>
+        <li class="contacto link-nav p-2 rounded-full hover:px-6 transition-all duration-300">
+          <a href={aboutURL}>{translateLabels("nav.contacto")}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const btn = document.querySelector('.hamburger');
+  const menu = document.getElementById('menu-principal');
+
+  btn?.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>
+
+<style>
+  /* Botón hamburguesa: oculto en escritorio */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger span {
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+
+  /* 📱 Móvil */
+  @media (max-width: 767px) {
+.nav {
+     align-items: flex-start;
+     margin:3rem;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    /* right-nav en columna: idiomas + hamburguesa arriba, menú debajo */
+    .right-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    /* El menú se oculta por defecto en móvil */
+    .menu {
+      display: none;
+      width: 100%;
+      padding: 1rem 0;
+    }
+
+    /* Al abrir, columna */
+    .menu.open {
+      display: flex;
+      flex-direction: column;
+    }
+    
+
+  }
+</style>
