@@ -99,7 +99,7 @@ select {
   font-family: "Afacad", sans-serif;
   padding: 0.5rem;
   border-radius: 5px;
-  margin-left: 1rem;
+  margin: 1rem;
 }
 
 .idiomas {
@@ -187,7 +187,8 @@ button {
 
 .img-card {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: contain;
 }
 
 p.card-description {
