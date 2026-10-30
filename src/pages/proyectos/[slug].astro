@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
-import Base from '../../layouts/layout.astro';
+import Layout from '../../layouts/layout.astro';
 import VideoPlayer from '../../components/videoplayer.astro';  
 
 export async function getStaticPaths() {
@@ -19,7 +19,8 @@ const { title, year,/*  description, image,  */gallery, categoria, video } = pro
 ---
 
 
-<Base titulo={title}>
+
+<Layout titulo={title}>
  
 
   <article class="proyecto">
@@ -57,4 +58,4 @@ const { title, year,/*  description, image,  */gallery, categoria, video } = pro
 
 
   </article>
-</Base>
+</Layout>

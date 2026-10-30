@@ -1,3 +1,21 @@
+---
+
+import { getCollection } from 'astro:content';
+import Card from '../../../components/cards.astro';
+
+const proyectos = await getCollection('proyectos');
+
+
+import Layout from '../../../layouts/layout.astro'
+
+import { getLocale, useTranslations } from '../../../i18n/utils.ts'
+
+const currentLang = getLocale(Astro.currentLocale)
+const translateLabels = useTranslations(currentLang)
+
+---
+	
+
 <Layout
   title="Portfolio de Arte y Diseño — Amanda Torres"
   description="Portfolio de Amanda Torres Rodríguez, artista visual y desarrolladora. Pintura, gráfica original, diseño editorial, gráfico y UX/web."
