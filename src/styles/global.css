@@ -53,10 +53,6 @@ h1 {
   font-weight: 600;
 }
 
-h3 {
-  font-weight: 300;
-}
-
 /* navegación */
 
 nav {
@@ -306,6 +302,19 @@ textarea {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
   font-family: inherit;
 }
+
+/*cv*/
+.titulo--bold {
+  font-weight: bold;
+}
+
+.section_cv {
+  display: inline-block;
+  line-height: 2rem;
+  max-width: 800px;
+  margin-left: 1%;
+}
+/*fin cv*/
 
 /* Footer */
 
