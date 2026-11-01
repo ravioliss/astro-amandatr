@@ -1,14 +1,14 @@
 ---
-categoria: diseno
+categoria: grafica
 title: Carteles
 year: 2026
 description: Carteles presentados a concursos.
 
-image: ../../assets/grafico/tipografico.png
+image: ../../assets/grafica/carteles/tipografico.png
 gallery:
-  - ../../assets/grafico/8m.png
-  - ../../assets/grafico/8m2.png
-  - ../../assets/grafico/tipografico.png
+  - ../../assets/grafica/carteles/8m.png
+  - ../../assets/grafica/carteles/8m2.png
+  - ../../assets/grafica/carteles/tipografico.png
 ---
 
 Estos son algunos trabajos que he realizado en Adobe Illustrator y PhotoShop.
