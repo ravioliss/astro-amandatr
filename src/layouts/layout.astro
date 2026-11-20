@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "Portfolio de arte, diseño e investigación de Amanda Torres",
+  description = "Portfolio de arte de Amanda Torres",
   image,
 } = Astro.props;
 
@@ -38,7 +38,7 @@ const {
       "@type": "Person",
       "name": "Amanda Torres Rodríguez",
       "url": "https://amandatr.com",
-      "jobTitle": "Artista visual y diseñadora",
+      "jobTitle": "Artista visual ",
       "sameAs": [
         "https://github.com/ravioliss",
         "https://www.behance.net/amandatr-me",
@@ -48,13 +48,33 @@ const {
         "Pintura",
         "Gráfica",
         "Diseño editorial",
-        "Diseño UX",
-        "Diseño web"
+        "Video"
       ],
-      "description": "Portfolio de Amanda Torres Rodríguez, artista visual y diseñadora con proyectos de pintura, gráfica original, diseño editorial y UX/web."
+      "description": "Portfolio de Amanda Torres Rodríguez, artista visual especializada en gráfica original, diseño editorial y diseño web."
     })} />
-    
-   <link rel="preconnect" href="https://fonts.bunny.net" />
+
+    <!-- HTML Meta Tags -->
+<title>Amanda Torres</title>
+<meta name="description" content="Portfolio de Amanda Torres Rodríguez, artista visual especializada en gráfica original, diseño editorial y diseño web.">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:url" content="http://amandatr.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amanda Torres">
+<meta property="og:description" content="Portfolio de Amanda Torres Rodríguez, artista visual especializada en gráfica original, diseño editorial y diseño web.">
+<meta property="og:image" content="/assets/grafica/aqui/aquiportada.jpg"> 
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="amandatr.com">
+<meta property="twitter:url" content="http://amandatr.com">
+<meta name="twitter:title" content="Amanda Torres">
+<meta name="twitter:description" content="Portfolio de Amanda Torres Rodríguez, artista visual especializada en gráfica original, diseño editorial y diseño web.">
+<meta name="twitter:image" content="/assets/grafica/aqui/aquiportada.jpg"> 
+
+<!-- Meta Tags Generated via https://opengraph.dev -->
+
+<link rel="preconnect" href="https://fonts.bunny.net" />
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
 <link href="https://fonts.bunny.net/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
 
@@ -64,7 +84,6 @@ const {
     <Header />
 
     <main>
-
       <div class="container">
       <slot />
     </div>
