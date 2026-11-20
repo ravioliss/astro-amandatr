@@ -362,7 +362,12 @@ footer a {
     gap: 1rem;
   }
 
-  main {
+  .card-container {
+    width: 100%;
+  }
+
+  .footer-right {
     justify-content: center;
+    gap: 1rem;
   }
 }
